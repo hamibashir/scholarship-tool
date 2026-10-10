@@ -1,0 +1,15 @@
+# ----------------------------------------------------------------------
+# SCHOLARSHIP TRACKER PRO - PREVENT BROWSER CACHING FOR HTML / PHP / JS
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+    # Disable caching for HTML and PHP files so changes reflect immediately
+    <FilesMatch "\.(html|htm|php|json)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+</IfModule>
+
+# Optional security and index settings
+Options -Indexes
+DirectoryIndex tool.html index.html index.php

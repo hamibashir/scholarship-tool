@@ -1,0 +1,3441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>🎯 Scholarship Tracker Pro · Optimized & Modern</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-card-sub: #f1f5f9;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --primary-light: #eef2ff;
+      --success: #10b981;
+      --success-light: #ecfdf5;
+      --warning: #f59e0b;
+      --warning-light: #fffbeb;
+      --danger: #ef4444;
+      --danger-light: #fef2f2;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 4px 14px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+      --shadow-lg: 0 12px 24px -4px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+    }
+
+    body.dark {
+      --bg-page: #0b0f19;
+      --bg-card: #151c2c;
+      --bg-card-sub: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #26334d;
+      --primary-light: #1e1b4b;
+      --success-light: #064e3b;
+      --warning-light: #451a03;
+      --danger-light: #450a0a;
+      --shadow-sm: none;
+      --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background: var(--bg-page);
+      color: var(--text-main);
+      transition: background 0.2s, color 0.2s;
+      padding: 24px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1540px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    }
+
+    .brand-text h1 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-text p {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .header-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .profile-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 6px 16px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .profile-pill span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+    }
+
+    .profile-pill span strong {
+      color: var(--text-main);
+    }
+
+    .profile-pill i {
+      color: var(--primary);
+    }
+
+    .view-switcher {
+      display: flex;
+      background: var(--bg-card-sub);
+      padding: 3px;
+      border-radius: 30px;
+      border: 1px solid var(--border);
+    }
+
+    .btn-view-opt {
+      border: none;
+      background: transparent;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 20px;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: 0.15s;
+    }
+
+    .btn-view-opt.active {
+      background: var(--bg-card);
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-role {
+      background: #e0e7ff;
+      color: #3730a3;
+      border: 1px solid #c7d2fe;
+      border-radius: 40px;
+      padding: 7px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.15s;
+    }
+
+    .btn-role.counsellor {
+      background: #fef3c7;
+      color: #92400e;
+      border-color: #fde68a;
+    }
+
+    body.dark .btn-role {
+      background: #1e1b4b;
+      color: #a5b4fc;
+      border-color: #3730a3;
+    }
+
+    body.dark .btn-role.counsellor {
+      background: #451a03;
+      color: #fde68a;
+      border-color: #78350f;
+    }
+
+    .btn-primary-action {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 7px 18px;
+      border-radius: 40px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.15s;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+    }
+
+    .btn-primary-action:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .sync-status {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 30px;
+      background: #d1fae5;
+      color: #065f46;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sync-status.syncing {
+      background: #fef9c3;
+      color: #a16207;
+    }
+
+    .sync-status.error {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .btn-icon-mode {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: 0.15s;
+    }
+
+    .btn-icon-mode:hover {
+      background: var(--bg-card-sub);
+    }
+
+    /* CONTROL & FILTER BAR */
+    .control-bar {
+      background: var(--bg-card);
+      padding: 14px 20px;
+      border-radius: var(--radius-lg);
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .filter-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .filter-item label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .filter-item select {
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 600;
+      outline: none;
+      background: var(--bg-page);
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 4px 12px;
+      width: 240px;
+      transition: 0.15s;
+      position: relative;
+    }
+
+    .search-box:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+      width: 280px;
+    }
+
+    .search-box input {
+      border: none;
+      background: transparent;
+      padding: 4px;
+      font-size: 12px;
+      outline: none;
+      color: var(--text-main);
+      width: 100%;
+    }
+
+    .search-box i {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .search-box .btn-clear-search {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 12px;
+      display: none;
+      margin-left: 4px;
+    }
+
+    .search-box .btn-clear-search.active {
+      display: block;
+    }
+
+    .matrix-pill {
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      display: none;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .matrix-pill.active {
+      display: flex;
+    }
+
+    .matrix-pill button {
+      background: none;
+      border: none;
+      color: var(--primary);
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn-reset-filters {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px dashed var(--border);
+      border-radius: 30px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .btn-reset-filters:hover {
+      color: var(--danger);
+      border-color: var(--danger);
+    }
+
+    /* STATS BAR */
+    .stats-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 28px;
+      margin-bottom: 24px;
+      background: var(--bg-card);
+      padding: 12px 24px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 600;
+      width: fit-content;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .stat-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+    }
+
+    .stat-chip strong {
+      color: var(--text-main);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    /* MATRIX GRID */
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .matrix-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      cursor: pointer;
+      transition: 0.15s;
+      min-width: 0;
+    }
+
+    .matrix-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .matrix-card.q1 {
+      border-top-color: #ef4444;
+    }
+
+    .matrix-card.q2 {
+      border-top-color: #f59e0b;
+    }
+
+    .matrix-card.q3 {
+      border-top-color: #3b82f6;
+    }
+
+    .matrix-card.q4 {
+      border-top-color: #94a3b8;
+    }
+
+    .matrix-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .matrix-card-head h4 {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .matrix-card-count {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .matrix-card-list {
+      font-size: 11px;
+      color: var(--text-muted);
+      max-height: 52px;
+      overflow-y: auto;
+      word-break: break-word;
+      white-space: normal;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* GRID VIEW CARDS */
+    .scholarships-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 20px;
+    }
+
+    .card-item {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: 0.2s;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-item:hover {
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-md);
+    }
+
+    body.dark .card-item:hover {
+      border-color: #475569;
+    }
+
+    .card-main {
+      padding: 18px;
+    }
+
+    .card-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .card-flag-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-flag {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .card-title-text {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+      line-height: 1.3;
+    }
+
+    .card-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .priority-pill {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .priority-high {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .priority-medium {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .priority-low {
+      background: #f1f5f9;
+      color: #475569;
+    }
+
+    body.dark .priority-high {
+      background: #450a0a;
+      color: #fca5a5;
+    }
+
+    body.dark .priority-medium {
+      background: #451a03;
+      color: #fde68a;
+    }
+
+    body.dark .priority-low {
+      background: #1e293b;
+      color: #94a3b8;
+    }
+
+    .metrics-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 12px 0;
+    }
+
+    .chip {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 30px;
+      background: var(--bg-card-sub);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .chip-funding {
+      background: #d1fae5;
+      color: #065f46;
+    }
+
+    .chip-partial {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .chip-toefl {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .chip-urgent {
+      background: #fee2e2;
+      color: #991b1b;
+      font-weight: 700;
+    }
+
+    body.dark .chip-funding {
+      background: #064e3b;
+      color: #6ee7b7;
+    }
+
+    body.dark .chip-partial {
+      background: #451a03;
+      color: #fde68a;
+    }
+
+    body.dark .chip-toefl {
+      background: #0c4a6e;
+      color: #7dd3fc;
+    }
+
+    body.dark .chip-urgent {
+      background: #450a0a;
+      color: #fca5a5;
+    }
+
+    .card-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .status-select {
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--bg-card);
+      color: var(--text-main);
+      cursor: pointer;
+      outline: none;
+    }
+
+    .star-rating {
+      display: flex;
+      gap: 2px;
+      color: #cbd5e1;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .star-rating .active {
+      color: #f59e0b;
+    }
+
+    .score-tag {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .btn-track-toggle {
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: 0.15s;
+    }
+
+    .btn-track-toggle.tracked {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* EXPANDABLE TAB DRAWER */
+    .card-drawer-trigger {
+      width: 100%;
+      background: var(--bg-card-sub);
+      border: none;
+      border-top: 1px solid var(--border);
+      padding: 8px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.15s;
+    }
+
+    .card-drawer-trigger:hover {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .card-drawer {
+      display: none;
+      background: var(--bg-card-sub);
+      border-top: 1px solid var(--border);
+      padding: 14px 18px;
+    }
+
+    .card-drawer.open {
+      display: block;
+    }
+
+    .drawer-tabs {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 6px;
+      transition: 0.15s;
+    }
+
+    .tab-btn.active {
+      background: var(--bg-card);
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    /* Checklist & Inline Links */
+    .docs-checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .doc-chk-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-card);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      gap: 6px;
+    }
+
+    .doc-chk-item label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .doc-chk-item input[type="checkbox"] {
+      accent-color: var(--primary);
+    }
+
+    .doc-actions {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .doc-link-badge {
+      font-size: 10px;
+      font-weight: 700;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 2px 8px;
+      border-radius: 12px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .doc-link-badge:hover {
+      text-decoration: underline;
+    }
+
+    .btn-link-drive {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 11px;
+      padding: 2px;
+    }
+
+    .btn-link-drive.active {
+      color: var(--primary);
+    }
+
+    /* Notes Boxes */
+    .drawer-notes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .note-box {
+      font-size: 11px;
+    }
+
+    .note-box label {
+      display: block;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      font-size: 10px;
+    }
+
+    .note-box textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px;
+      font-size: 11px;
+      background: var(--bg-card);
+      color: var(--text-main);
+      resize: vertical;
+      min-height: 45px;
+      outline: none;
+    }
+
+    .note-box textarea:focus {
+      border-color: var(--primary);
+    }
+
+    /* Discussion Feed */
+    .comments-thread {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 120px;
+      overflow-y: auto;
+      margin-bottom: 8px;
+    }
+
+    .comment-bubble {
+      background: var(--bg-card);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 11px;
+      position: relative;
+    }
+
+    .comment-bubble.counsellor {
+      border-left: 3px solid var(--warning);
+    }
+
+    .comment-meta {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      color: var(--text-muted);
+      font-size: 10px;
+      margin-bottom: 2px;
+    }
+
+    .comment-input-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .comment-input-group input {
+      flex: 1;
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      font-size: 11px;
+      background: var(--bg-card);
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .comment-input-group button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* DATA TABLE VIEW */
+    .table-container {
+      display: none;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .table-container.active {
+      display: block;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 12px;
+    }
+
+    .data-table th {
+      background: var(--bg-card-sub);
+      padding: 12px 16px;
+      font-weight: 700;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      text-transform: uppercase;
+      font-size: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .data-table tr.table-row-main {
+      cursor: pointer;
+    }
+
+    .data-table tr.table-row-main:hover {
+      background: var(--bg-card-sub);
+    }
+
+    .table-detail-row {
+      display: none;
+      background: var(--bg-card-sub);
+    }
+
+    .table-detail-row.open {
+      display: table-row;
+    }
+
+    .table-detail-content {
+      padding: 16px;
+      font-size: 11px;
+    }
+
+    /* KANBAN BOARD VIEW */
+    .kanban-view {
+      display: none;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      overflow-x: auto;
+      align-items: start;
+    }
+
+    .kanban-view.active {
+      display: grid;
+    }
+
+    .kanban-col {
+      background: var(--bg-card-sub);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      border: 1px solid var(--border);
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .kanban-col-head {
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .kanban-col-count {
+      background: var(--bg-card);
+      color: var(--text-muted);
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* TOOLBAR & FOOTER */
+    .footer-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      gap: 14px;
+    }
+
+    .toolbar-left {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.15s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-card-sub);
+      border-color: #cbd5e1;
+    }
+
+    .empty-placeholder {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+
+    .empty-placeholder i {
+      font-size: 44px;
+      margin-bottom: 12px;
+      opacity: 0.4;
+    }
+
+    /* MODALS */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      max-width: 520px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .modal-head h3 {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .modal-close-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .form-field {
+      margin-bottom: 14px;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      background: var(--bg-page);
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    /* CALENDAR VIEW */
+    .calendar-container {
+      display: none;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .calendar-container.active {
+      display: block;
+    }
+
+    .cal-header-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cal-title-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cal-month-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cal-badge-count {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 20px;
+    }
+
+    .cal-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-cal-nav {
+      background: var(--bg-card-sub);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+
+    .btn-cal-nav:hover {
+      background: var(--border);
+    }
+
+    .cal-select {
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--bg-page);
+      color: var(--text-main);
+      outline: none;
+      cursor: pointer;
+    }
+
+    .cal-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 16px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .cal-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .cal-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .cal-dot.high {
+      background: #ef4444;
+    }
+
+    .cal-dot.med {
+      background: #f59e0b;
+    }
+
+    .cal-dot.low {
+      background: #94a3b8;
+    }
+
+    .cal-dot.tracked {
+      background: #4f46e5;
+    }
+
+    .cal-dot.applied {
+      background: #10b981;
+    }
+
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+
+    .cal-weekday-header {
+      text-align: center;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 8px 4px;
+      background: var(--bg-card-sub);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+
+    .cal-day-cell {
+      background: var(--bg-page);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      min-height: 115px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      position: relative;
+      transition: 0.15s;
+    }
+
+    .cal-day-cell:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cal-day-cell.other-month {
+      opacity: 0.35;
+      background: transparent;
+    }
+
+    .cal-day-cell.today {
+      border: 2px solid var(--primary);
+      background: var(--primary-light);
+    }
+
+    body.dark .cal-day-cell.today {
+      background: rgba(79, 70, 229, 0.18);
+    }
+
+    .cal-day-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2px;
+    }
+
+    .cal-day-num {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .cal-day-cell.today .cal-day-num {
+      color: var(--primary);
+      font-size: 14px;
+    }
+
+    .cal-day-count-badge {
+      font-size: 9px;
+      font-weight: 800;
+      background: var(--primary);
+      color: white;
+      padding: 1px 6px;
+      border-radius: 10px;
+    }
+
+    .cal-pills-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      overflow-y: auto;
+      max-height: 85px;
+      flex: 1;
+      padding-right: 2px;
+    }
+
+    .cal-pills-wrapper::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .cal-pills-wrapper::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .cal-pills-wrapper::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    .cal-pills-wrapper::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-hover);
+    }
+
+    .cal-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4px;
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: transform 0.12s, box-shadow 0.12s;
+      border: 1px solid transparent;
+      flex-shrink: 0;
+    }
+
+    .cal-pill:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      z-index: 10;
+    }
+
+    .cal-pill.high {
+      background: #fee2e2;
+      color: #991b1b;
+      border-color: #fca5a5;
+    }
+
+    .cal-pill.medium {
+      background: #fef3c7;
+      color: #92400e;
+      border-color: #fde68a;
+    }
+
+    .cal-pill.low {
+      background: #f1f5f9;
+      color: #475569;
+      border-color: #cbd5e1;
+    }
+
+    body.dark .cal-pill.high {
+      background: #450a0a;
+      color: #fca5a5;
+      border-color: #7f1d1d;
+    }
+
+    body.dark .cal-pill.medium {
+      background: #451a03;
+      color: #fde68a;
+      border-color: #78350f;
+    }
+
+    body.dark .cal-pill.low {
+      background: #1e293b;
+      color: #94a3b8;
+      border-color: #334155;
+    }
+
+    .cal-pill.tracked-border {
+      outline: 2px solid var(--primary);
+    }
+
+    .cal-pill-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cal-more-btn {
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--primary);
+      text-align: center;
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: 8px;
+      background: var(--primary-light);
+      border: 1px dashed var(--primary);
+      transition: 0.15s;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .cal-more-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-style: solid;
+    }
+
+    /* TOOLTIP POPOVER ON HOVER */
+    .cal-tooltip {
+      position: fixed;
+      z-index: 2000;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-lg);
+      max-width: 320px;
+      width: 280px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cal-tooltip.active {
+      opacity: 1;
+    }
+
+    .cal-tooltip-head {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+    }
+
+    .cal-tooltip-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+
+    .cal-tooltip-uni {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .cal-tooltip-body {
+      font-size: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      color: var(--text-main);
+    }
+
+    .cal-tooltip-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .cal-tooltip-days {
+      font-weight: 800;
+      color: #ef4444;
+    }
+
+    /* ROLLING SECTION AT BOTTOM */
+    .cal-rolling-card {
+      margin-top: 24px;
+      background: var(--bg-card-sub);
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+    }
+
+    .cal-rolling-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cal-rolling-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .cal-rolling-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.15s;
+    }
+
+    .cal-rolling-pill:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    @media (max-width: 1024px) {
+      .matrix-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cal-grid {
+        grid-template-columns: repeat(7, minmax(100px, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .matrix-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* EXECUTIVE PRINT REPORT FORMATTING */
+    @media print {
+      body {
+        background: white !important;
+        color: black !important;
+        padding: 0 !important;
+      }
+
+      .navbar,
+      .control-bar,
+      .footer-toolbar,
+      .btn-track-toggle,
+      .btn-icon-mode,
+      .view-switcher,
+      .card-drawer-trigger,
+      .card-drawer,
+      .matrix-grid,
+      .stats-bar {
+        display: none !important;
+      }
+
+      .container {
+        max-width: 100% !important;
+      }
+
+      .table-container {
+        display: block !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+
+      .data-table th {
+        background: #f1f5f9 !important;
+        color: black !important;
+        border-bottom: 2px solid #333 !important;
+      }
+
+      .data-table td {
+        border-bottom: 1px solid #ddd !important;
+      }
+
+      .scholarships-grid,
+      .kanban-view {
+        display: none !important;
+      }
+
+      .print-header {
+        display: block !important;
+        margin-bottom: 20px;
+      }
+    }
+
+    .print-header {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- PRINT ONLY EXECUTIVE HEADER -->
+    <div class="print-header">
+      <h2 style="font-size:22px; font-weight:800;">🎓 Student & Counsellor Meeting Executive Agenda</h2>
+      <p style="font-size:12px; color:#555;">Student: BS Software Engineering (CGPA 3.24, TOEFL 80–100) · Tracked
+        Scholarship Status Report</p>
+      <hr style="margin:10px 0;">
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="brand">
+        <div class="brand-icon"><i class="fas fa-compass"></i></div>
+        <div class="brand-text">
+          <h1>Scholarship Tracker Pro</h1>
+          <p>Collaborative Master's Target Portal</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div class="profile-pill">
+          <span>🎓 <strong>BS SE · 3.24 CGPA</strong></span>
+          <span>🇵🇰 <strong>Pakistan</strong></span>
+          <span>📘 <strong>TOEFL 80–100</strong></span>
+        </div>
+
+        <div class="view-switcher">
+          <button class="btn-view-opt active" id="viewGridOpt"><i class="fas fa-th-large"></i> Grid</button>
+          <button class="btn-view-opt" id="viewTableOpt"><i class="fas fa-list"></i> Table</button>
+          <button class="btn-view-opt" id="viewKanbanOpt"><i class="fas fa-columns"></i> Kanban</button>
+          <button class="btn-view-opt" id="viewCalendarOpt"><i class="fas fa-calendar-alt"></i> Calendar</button>
+        </div>
+
+        <button class="btn-role" id="roleBtn"><i class="fas fa-user"></i> Student Mode</button>
+        <button class="btn-primary-action" id="openAddModalBtn"><i class="fas fa-plus"></i> Add Target</button>
+        <div class="sync-status" id="syncStatusBadge"><i class="fas fa-cloud"></i> Synced</div>
+        <button class="btn-icon-mode" id="themeToggleBtn"><i class="fas fa-moon"></i></button>
+      </div>
+    </header>
+
+    <!-- CONTROL & FILTER BAR -->
+    <section class="control-bar">
+      <div class="filter-group">
+        <div class="filter-item">
+          <label>Priority</label>
+          <select id="statusFilter">
+            <option value="all">All Priority</option>
+            <option value="high">High</option>
+            <option value="medium">Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label>Funding</label>
+          <select id="fundingFilter">
+            <option value="all">All Funding</option>
+            <option value="fully">Fully Funded</option>
+            <option value="partial">Partial</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label>Country</label>
+          <select id="countryFilter">
+            <option value="all">All Countries</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label>Tracked</label>
+          <select id="trackedFilter">
+            <option value="all">All Items</option>
+            <option value="tracked">⭐ Tracked Only</option>
+            <option value="untracked">Untracked Only</option>
+          </select>
+        </div>
+        <div class="filter-item">
+          <label>Sort By</label>
+          <select id="sortFilter">
+            <option value="deadline">Closest Deadline</option>
+            <option value="priority">Priority (High→Low)</option>
+            <option value="country">Country A→Z</option>
+            <option value="name">Name A→Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search name, uni, tag, notes...">
+          <button class="btn-clear-search" id="clearSearchBtn">&times;</button>
+        </div>
+        <div class="matrix-pill" id="matrixFilterBadge">
+          <span id="matrixFilterLabel">Urgent & Important</span>
+          <button id="clearMatrixFilterBtn">&times;</button>
+        </div>
+        <button class="btn-reset-filters" id="resetFiltersBtn">Reset Filters</button>
+      </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <section class="stats-bar">
+      <span class="stat-chip"><i class="fas fa-layer-group"></i> Total: <strong id="statTotal">0</strong></span>
+      <span class="stat-chip"><i class="fas fa-fire" style="color:#ef4444;"></i> High Priority: <strong
+          id="statHigh">0</strong></span>
+      <span class="stat-chip" id="chipTrackedFilter" style="cursor:pointer;" title="Click to filter tracked items"><i
+          class="fas fa-bookmark" style="color:#4f46e5;"></i> Tracked: <strong id="statTracked">0</strong></span>
+      <span class="stat-chip"><i class="fas fa-paper-plane" style="color:#3b82f6;"></i> Applied: <strong
+          id="statApplied">0</strong></span>
+      <span class="stat-chip"><i class="fas fa-star" style="color:#f59e0b;"></i> Shortlisted: <strong
+          id="statShortlisted">0</strong></span>
+      <span class="stat-chip"><i class="fas fa-trophy" style="color:#10b981;"></i> Awarded: <strong
+          id="statAwarded">0</strong></span>
+    </section>
+
+    <!-- EISENHOWER MATRIX GRID -->
+    <section class="matrix-grid">
+      <div class="matrix-card q1" data-quadrant="q1">
+        <div class="matrix-card-head">
+          <h4>🔴 Urgent & Important</h4><span class="matrix-card-count" id="q1cnt">0</span>
+        </div>
+        <div class="matrix-card-list" id="q1lst">—</div>
+      </div>
+      <div class="matrix-card q2" data-quadrant="q2">
+        <div class="matrix-card-head">
+          <h4>🟠 Important · Not Urgent</h4><span class="matrix-card-count" id="q2cnt">0</span>
+        </div>
+        <div class="matrix-card-list" id="q2lst">—</div>
+      </div>
+      <div class="matrix-card q3" data-quadrant="q3">
+        <div class="matrix-card-head">
+          <h4>🔵 Urgent · Not Important</h4><span class="matrix-card-count" id="q3cnt">0</span>
+        </div>
+        <div class="matrix-card-list" id="q3lst">—</div>
+      </div>
+      <div class="matrix-card q4" data-quadrant="q4">
+        <div class="matrix-card-head">
+          <h4>⚪ Not Urgent · Not Important</h4><span class="matrix-card-count" id="q4cnt">0</span>
+        </div>
+        <div class="matrix-card-list" id="q4lst">—</div>
+      </div>
+    </section>
+
+    <!-- VIEW 1: GRID VIEW -->
+    <main id="gridContainer" class="scholarships-grid"></main>
+
+    <!-- VIEW 2: COMPACT DATA TABLE VIEW WITH EXPANDABLE ROWS -->
+    <section id="tableContainer" class="table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Flag</th>
+            <th>Scholarship Name</th>
+            <th>University</th>
+            <th>Funding</th>
+            <th>Deadline</th>
+            <th>TOEFL / English</th>
+            <th>Fee</th>
+            <th>Status</th>
+            <th>Rating</th>
+            <th>Score</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </section>
+
+    <!-- VIEW 3: KANBAN BOARD VIEW -->
+    <section id="kanbanContainer" class="kanban-view">
+      <div class="kanban-col">
+        <div class="kanban-col-head"><span>🔵 Not Started</span><span class="kanban-col-count"
+            id="kbNotStartedCnt">0</span></div>
+        <div id="kbNotStartedLst"></div>
+      </div>
+      <div class="kanban-col">
+        <div class="kanban-col-head"><span>📝 Research & Prep</span><span class="kanban-col-count"
+            id="kbPrepCnt">0</span></div>
+        <div id="kbPrepLst"></div>
+      </div>
+      <div class="kanban-col">
+        <div class="kanban-col-head"><span>📤 Applied</span><span class="kanban-col-count" id="kbAppliedCnt">0</span>
+        </div>
+        <div id="kbAppliedLst"></div>
+      </div>
+      <div class="kanban-col">
+        <div class="kanban-col-head"><span>⭐ Shortlisted / Interview</span><span class="kanban-col-count"
+            id="kbShortlistedCnt">0</span></div>
+        <div id="kbShortlistedLst"></div>
+      </div>
+      <div class="kanban-col">
+        <div class="kanban-col-head"><span>🏆 Awarded</span><span class="kanban-col-count" id="kbAwardedCnt">0</span>
+        </div>
+        <div id="kbAwardedLst"></div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: CALENDAR VIEW WITH EMBEDDED SCHOLARSHIPS -->
+    <section id="calendarContainer" class="calendar-container">
+      <div class="cal-header-bar">
+        <div class="cal-title-group">
+          <h3 class="cal-month-title" id="calMonthTitle"><i class="fas fa-calendar-alt"
+              style="color:var(--primary);"></i> Calendar</h3>
+          <span class="cal-badge-count" id="calMonthBadge">0 Deadlines</span>
+        </div>
+        <div class="cal-controls">
+          <button class="btn-cal-nav" id="calPrevBtn"><i class="fas fa-chevron-left"></i> Prev</button>
+          <button class="btn-cal-nav" id="calTodayBtn">Today</button>
+          <button class="btn-cal-nav" id="calNextBtn">Next <i class="fas fa-chevron-right"></i></button>
+          <select class="cal-select" id="calMonthSelect"></select>
+          <select class="cal-select" id="calYearSelect"></select>
+        </div>
+      </div>
+
+      <div class="cal-legend">
+        <span>Filter Legend:</span>
+        <span class="cal-legend-item"><span class="cal-dot high"></span> High Priority</span>
+        <span class="cal-legend-item"><span class="cal-dot med"></span> Medium Priority</span>
+        <span class="cal-legend-item"><span class="cal-dot low"></span> Low Priority</span>
+        <span class="cal-legend-item"><span class="cal-dot tracked"></span> ⭐ Tracked</span>
+        <span class="cal-legend-item"><span class="cal-dot applied"></span> Applied / Awarded</span>
+      </div>
+
+      <div class="cal-grid" id="calGrid"></div>
+
+      <div class="cal-rolling-card" id="calRollingCard">
+        <div class="cal-rolling-title"><i class="fas fa-sync-alt"></i> Rolling & Flexible Deadlines</div>
+        <div class="cal-rolling-chips" id="calRollingList"></div>
+      </div>
+    </section>
+
+    <!-- FOOTER TOOLBAR -->
+    <footer class="footer-toolbar">
+      <div class="toolbar-left">
+        <button class="btn-primary-action" id="exportCsvBtn"><i class="fas fa-file-csv"></i> Export CSV</button>
+        <button class="btn-secondary" id="exportIcalBtn"><i class="fas fa-calendar-alt"></i> Export iCal (.ics)</button>
+        <button class="btn-secondary" id="printReportBtn"><i class="fas fa-print"></i> Meeting Agenda (PDF)</button>
+        <button class="btn-secondary" id="openImportModalBtn"><i class="fas fa-file-import"></i> Import Data</button>
+        <button class="btn-reset-filters" id="wipeProgressBtn" style="color:var(--danger);"><i
+            class="fas fa-trash-alt"></i> Reset All Progress</button>
+      </div>
+      <div style="font-size:12px; color:var(--text-muted); font-weight:600;"><i class="fas fa-database"></i> Live cPanel
+        MySQL API Sync with Local Cache</div>
+    </footer>
+
+  </div>
+
+  <!-- ADD MODAL -->
+  <div class="modal-backdrop" id="addModal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3>Add Custom Scholarship</h3>
+        <button class="modal-close-btn" id="closeAddModal">&times;</button>
+      </div>
+      <form id="addForm">
+        <div class="form-field"><label>Scholarship Name *</label><input type="text" id="add_name" required
+            placeholder="e.g. Stipendium Hungaricum"></div>
+        <div class="form-grid-2">
+          <div class="form-field"><label>University</label><input type="text" id="add_uni"
+              placeholder="e.g. Debrecen Univ"></div>
+          <div class="form-field"><label>Country (with Flag Emoji) *</label><input type="text" id="add_country" required
+              placeholder="e.g. 🇭🇺 Hungary"></div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-field"><label>Funding Level</label><select id="add_funding">
+              <option value="fully">Fully Funded</option>
+              <option value="partial">Partial</option>
+            </select></div>
+          <div class="form-field"><label>Priority Rating</label><select id="add_priority">
+              <option value="high">High</option>
+              <option value="medium" selected>Medium</option>
+              <option value="low">Low</option>
+            </select></div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-field"><label>Deadline Date</label><input type="text" id="add_deadline"
+              placeholder="e.g. Jan 15, 2027"></div>
+          <div class="form-field"><label>Stipend Amount</label><input type="text" id="add_stipend"
+              placeholder="e.g. HUF 43,700/mo"></div>
+        </div>
+        <div class="form-field"><label>Tags (comma-separated)</label><input type="text" id="add_tags"
+            placeholder="tuition, dorm, stipend"></div>
+        <div class="form-grid-2">
+          <div class="form-field"><label>TOEFL / English Requirement</label><input type="text" id="add_toefl"
+              placeholder="MOI accepted / TOEFL 79+"></div>
+          <div class="form-field"><label>Application Fee</label><select id="add_fee">
+              <option value="free">Free</option>
+              <option value="paid">Paid</option>
+            </select></div>
+        </div>
+        <button type="submit" class="btn-primary-action"
+          style="width:100%; justify-content:center; margin-top:8px;">Save to Database</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- EDIT MODAL -->
+  <div class="modal-backdrop" id="editModal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <h3>Edit Scholarship</h3>
+        <button class="modal-close-btn" id="closeEditModal">&times;</button>
+      </div>
+      <form id="editForm">
+        <input type="hidden" id="edit_id">
+        <div class="form-field"><label>Scholarship Name *</label><input type="text" id="edit_name" required></div>
+        <div class="form-grid-2">
+          <div class="form-field"><label>University</label><input type="text" id="edit_uni"></div>
+          <div class="form-field"><label>Country</label><input type="text" id="edit_country" required></div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-field"><label>Funding</label><select id="edit_funding">
+              <option value="fully">Fully Funded</option>
+              <option value="partial">Partial</option>
+            </select></div>
+          <div class="form-field"><label>Priority</label><select id="edit_priority">
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option value="low">Low</option>
+            </select></div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-field"><label>Deadline</label><input type="text" id="edit_deadline"></div>
+          <div class="form-field"><label>Stipend</label><input type="text" id="edit_stipend"></div>
+        </div>
+        <div class="form-field"><label>Tags (comma-separated)</label><input type="text" id="edit_tags"></div>
+        <div class="form-grid-2">
+          <div class="form-field"><label>TOEFL / English</label><input type="text" id="edit_toefl"></div>
+          <div class="form-field"><label>Fee</label><select id="edit_fee">
+              <option value="free">Free</option>
+              <option value="paid">Paid</option>
+            </select></div>
+        </div>
+        <button type="submit" class="btn-primary-action"
+          style="width:100%; justify-content:center; margin-top:8px;">Update Database</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- DOC LINK MODAL -->
+  <div class="modal-backdrop" id="docLinkModal">
+    <div class="modal-box" style="max-width:420px;">
+      <div class="modal-head">
+        <h3>Attach Google Drive Link</h3>
+        <button class="modal-close-btn" id="closeDocLinkModal">&times;</button>
+      </div>
+      <form id="docLinkForm">
+        <input type="hidden" id="doc_sch_id">
+        <input type="hidden" id="doc_item_name">
+        <div class="form-field">
+          <label id="docItemTitle">Document URL</label>
+          <input type="url" id="doc_url" placeholder="https://drive.google.com/..." required>
+        </div>
+        <button type="submit" class="btn-primary-action" style="width:100%; justify-content:center;">Save Document
+          Link</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- IMPORT MODAL -->
+  <div class="modal-backdrop" id="importModal">
+    <div class="modal-box" style="max-width:420px;">
+      <div class="modal-head">
+        <h3>Import Scholarship Dataset</h3>
+        <button class="modal-close-btn" id="closeImportModal">&times;</button>
+      </div>
+      <div class="form-field">
+        <label>Select JSON File</label>
+        <input type="file" id="importFileInput" accept=".json">
+      </div>
+      <button id="submitImportBtn" class="btn-primary-action"
+        style="width:100%; justify-content:center; margin-top:8px;">Import & Sync to MySQL</button>
+    </div>
+  </div>
+
+  <!-- CALENDAR DAY DEADLINES MODAL -->
+  <div class="modal-backdrop" id="calDayModal">
+    <div class="modal-box" style="max-width:600px;">
+      <div class="modal-head">
+        <h3 id="calDayModalTitle"><i class="fas fa-calendar-day"></i> Scholarship Deadlines</h3>
+        <button class="modal-close-btn" id="closeCalDayModal">&times;</button>
+      </div>
+      <div id="calDayModalList"
+        style="display:flex; flex-direction:column; gap:12px; max-height:65vh; overflow-y:auto; padding-right:4px;">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      let scholarships = [];
+      let activeRole = 'student';
+      let activeView = 'grid'; // 'grid', 'table', 'kanban'
+      let activeMatrixQuadrant = null;
+      let counsellorPin = '1234';
+      let counsellorAuthed = false;
+      let syncTimer = null;
+      let openDrawers = new Set();
+      let openTableRows = new Set();
+
+      // DOM REFS
+      const gridContainer = document.getElementById('gridContainer');
+      const tableContainer = document.getElementById('tableContainer');
+      const tableBody = document.getElementById('tableBody');
+      const kanbanContainer = document.getElementById('kanbanContainer');
+      const calendarContainer = document.getElementById('calendarContainer');
+
+      const viewGridOpt = document.getElementById('viewGridOpt');
+      const viewTableOpt = document.getElementById('viewTableOpt');
+      const viewKanbanOpt = document.getElementById('viewKanbanOpt');
+      const viewCalendarOpt = document.getElementById('viewCalendarOpt');
+
+      const statusFilter = document.getElementById('statusFilter');
+      const fundingFilter = document.getElementById('fundingFilter');
+      const countryFilter = document.getElementById('countryFilter');
+      const trackedFilter = document.getElementById('trackedFilter');
+      const sortFilter = document.getElementById('sortFilter');
+      const searchInput = document.getElementById('searchInput');
+      const clearSearchBtn = document.getElementById('clearSearchBtn');
+
+      const matrixFilterBadge = document.getElementById('matrixFilterBadge');
+      const matrixFilterLabel = document.getElementById('matrixFilterLabel');
+      const clearMatrixFilterBtn = document.getElementById('clearMatrixFilterBtn');
+      const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+
+      const roleBtn = document.getElementById('roleBtn');
+      const themeToggleBtn = document.getElementById('themeToggleBtn');
+      const syncStatusBadge = document.getElementById('syncStatusBadge');
+
+      const statTotal = document.getElementById('statTotal');
+      const statHigh = document.getElementById('statHigh');
+      const statTracked = document.getElementById('statTracked');
+      const statApplied = document.getElementById('statApplied');
+      const statShortlisted = document.getElementById('statShortlisted');
+      const statAwarded = document.getElementById('statAwarded');
+
+      const q1cnt = document.getElementById('q1cnt'), q2cnt = document.getElementById('q2cnt'), q3cnt = document.getElementById('q3cnt'), q4cnt = document.getElementById('q4cnt');
+      const q1lst = document.getElementById('q1lst'), q2lst = document.getElementById('q2lst'), q3lst = document.getElementById('q3lst'), q4lst = document.getElementById('q4lst');
+
+      // Modals
+      const addModal = document.getElementById('addModal');
+      const editModal = document.getElementById('editModal');
+      const docLinkModal = document.getElementById('docLinkModal');
+      const importModal = document.getElementById('importModal');
+
+      function setSyncState(state) {
+        if (state === 'syncing') {
+          syncStatusBadge.className = 'sync-status syncing';
+          syncStatusBadge.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Syncing...';
+        } else if (state === 'synced') {
+          syncStatusBadge.className = 'sync-status';
+          syncStatusBadge.innerHTML = '<i class="fas fa-cloud"></i> Synced';
+        } else if (state === 'error') {
+          syncStatusBadge.className = 'sync-status error';
+          syncStatusBadge.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Offline / Error';
+        }
+      }
+
+      async function loadScholarships() {
+        setSyncState('syncing');
+        try {
+          const res = await fetch('api.php?action=get_scholarships&_t=' + Date.now(), { cache: 'no-store' });
+          const data = await res.json();
+          if (data.success && Array.isArray(data.scholarships)) {
+            scholarships = data.scholarships;
+            localStorage.setItem('cached_scholarships', JSON.stringify(scholarships));
+            populateCountries();
+            render();
+            setSyncState('synced');
+          } else setSyncState('error');
+        } catch (err) {
+          console.warn('Network error, attempting local cache fallback');
+          const cached = localStorage.getItem('cached_scholarships');
+          if (cached) {
+            try {
+              scholarships = JSON.parse(cached);
+              populateCountries();
+              render();
+            } catch (e) { }
+          }
+          setSyncState('error');
+        }
+      }
+
+      function saveProgress(s) {
+        localStorage.setItem('cached_scholarships', JSON.stringify(scholarships));
+        setSyncState('syncing');
+        if (syncTimer) clearTimeout(syncTimer);
+
+        syncTimer = setTimeout(async () => {
+          try {
+            const res = await fetch('api.php?action=update_progress', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                action: 'update_progress',
+                id: s.id,
+                appStatus: s.appStatus,
+                rating: s.rating,
+                notes: s.notes,
+                counsellorNotes: s.counsellorNotes,
+                checklist: s.checklist || {},
+                docLinks: s.docLinks || {},
+                commentHistory: s.commentHistory || [],
+                tracked: s.tracked ? 1 : 0
+              })
+            });
+            const data = await res.json();
+            if (data.success) setSyncState('synced');
+            else setSyncState('error');
+          } catch (e) { setSyncState('error'); }
+        }, 300);
+      }
+
+      function populateCountries() {
+        const cur = countryFilter.value;
+        countryFilter.innerHTML = '<option value="all">All Countries</option>';
+        const set = new Set(scholarships.map(s => s.country));
+        set.forEach(c => {
+          const opt = document.createElement('option');
+          opt.value = c; opt.textContent = c;
+          countryFilter.appendChild(opt);
+        });
+        if (cur) countryFilter.value = cur;
+      }
+
+      function daysUntil(dl) {
+        if (!dl || dl === 'rolling' || dl === 'varies') return Infinity;
+        const d = new Date(dl);
+        if (isNaN(d.getTime())) return Infinity;
+        return Math.ceil((d - new Date()) / (1000 * 60 * 60 * 24));
+      }
+
+      function calcScore(s) {
+        let score = 0;
+        score += (s.rating || 0) * 5;
+        if (s.appStatus === 'awarded') score += 35;
+        else if (['interview', 'shortlisted'].includes(s.appStatus)) score += 25;
+        else if (s.appStatus === 'applied') score += 15;
+        else if (s.appStatus === 'preparing') score += 10;
+        else if (s.appStatus === 'researching') score += 5;
+        if (s.funding === 'fully') score += 15;
+        else if (s.funding === 'partial') score += 5;
+        if (s.status === 'high') score += 25;
+        else if (s.status === 'medium') score += 15;
+        else if (s.status === 'low') score += 5;
+        return Math.min(100, Math.max(0, score));
+      }
+
+      function getStatusLabel(st) {
+        const map = { 'not started': '🔵 Not Started', 'researching': '🔎 Researching', 'preparing': '📝 Preparing', 'applied': '📤 Applied', 'shortlisted': '⭐ Shortlisted', 'interview': '🎤 Interview', 'awarded': '🏆 Awarded', 'rejected': '❌ Rejected' };
+        return map[st] || '🔵 Not Started';
+      }
+
+      // ---------- MAIN RENDER ----------
+      function render() {
+        const stVal = statusFilter.value;
+        const fdVal = fundingFilter.value;
+        const ctVal = countryFilter.value;
+        const trkVal = trackedFilter.value;
+        const qVal = searchInput.value.toLowerCase().trim();
+        const sortVal = sortFilter.value;
+
+        clearSearchBtn.classList.toggle('active', qVal.length > 0);
+
+        let filtered = scholarships.filter(s => {
+          const stOk = stVal === 'all' || s.status === stVal;
+          const fdOk = fdVal === 'all' || s.funding === fdVal;
+          const ctOk = ctVal === 'all' || s.country === ctVal;
+          const trkOk = trkVal === 'all' || (trkVal === 'tracked' ? s.tracked : !s.tracked);
+
+          // Deep search across Name, Uni, Country, Tags, TOEFL, Stipend, Notes
+          const tagsStr = (s.tags || []).join(' ').toLowerCase();
+          const notesStr = ((s.notes || '') + ' ' + (s.counsellorNotes || '')).toLowerCase();
+          const qOk = s.name.toLowerCase().includes(qVal) ||
+            s.uni.toLowerCase().includes(qVal) ||
+            s.country.toLowerCase().includes(qVal) ||
+            tagsStr.includes(qVal) ||
+            (s.toefl || '').toLowerCase().includes(qVal) ||
+            notesStr.includes(qVal);
+
+          let matrixOk = true;
+          if (activeMatrixQuadrant) {
+            const d = daysUntil(s.deadline);
+            const urgent = d < 30 && d >= 0;
+            const important = s.rating >= 3 || s.status === 'high';
+            if (activeMatrixQuadrant === 'q1') matrixOk = urgent && important;
+            else if (activeMatrixQuadrant === 'q2') matrixOk = (!urgent) && important;
+            else if (activeMatrixQuadrant === 'q3') matrixOk = urgent && (!important);
+            else if (activeMatrixQuadrant === 'q4') matrixOk = (!urgent) && (!important);
+          }
+
+          return stOk && fdOk && ctOk && trkOk && qOk && matrixOk;
+        });
+
+        // SMART SORTING LOGIC
+        filtered.sort((a, b) => {
+          if (sortVal === 'deadline') {
+            const da = daysUntil(a.deadline), db = daysUntil(b.deadline);
+            if (da === Infinity && db === Infinity) return 0;
+            if (da === Infinity) return 1;
+            if (db === Infinity) return -1;
+            return da - db;
+          } else if (sortVal === 'priority') {
+            const ord = { high: 0, medium: 1, low: 2 };
+            return ord[a.status] - ord[b.status];
+          } else if (sortVal === 'country') return a.country.localeCompare(b.country);
+          else return a.name.localeCompare(b.name);
+        });
+
+        // STATS
+        statTotal.textContent = filtered.length;
+        statHigh.textContent = scholarships.filter(s => s.status === 'high').length;
+        statTracked.textContent = scholarships.filter(s => s.tracked).length;
+        statApplied.textContent = scholarships.filter(s => ['applied', 'shortlisted', 'interview', 'awarded'].includes(s.appStatus)).length;
+        statShortlisted.textContent = scholarships.filter(s => ['shortlisted', 'interview', 'awarded'].includes(s.appStatus)).length;
+        statAwarded.textContent = scholarships.filter(s => s.appStatus === 'awarded').length;
+
+        // MATRIX
+        const q1 = scholarships.filter(s => { const d = daysUntil(s.deadline); return d < 30 && d >= 0 && (s.rating >= 3 || s.status === 'high'); });
+        const q2 = scholarships.filter(s => { const d = daysUntil(s.deadline); return (d >= 30 || d === Infinity) && (s.rating >= 3 || s.status === 'high'); });
+        const q3 = scholarships.filter(s => { const d = daysUntil(s.deadline); return d < 30 && d >= 0 && s.rating < 3 && s.status !== 'high'; });
+        const q4 = scholarships.filter(s => { const d = daysUntil(s.deadline); return (d >= 30 || d === Infinity) && s.rating < 3 && s.status !== 'high'; });
+
+        q1cnt.textContent = q1.length; q1lst.textContent = q1.map(s => s.name).join(' · ') || '—';
+        q2cnt.textContent = q2.length; q2lst.textContent = q2.map(s => s.name).join(' · ') || '—';
+        q3cnt.textContent = q3.length; q3lst.textContent = q3.map(s => s.name).join(' · ') || '—';
+        q4cnt.textContent = q4.length; q4lst.textContent = q4.map(s => s.name).join(' · ') || '—';
+
+        // VIEW SWITCHING
+        gridContainer.style.display = activeView === 'grid' ? 'grid' : 'none';
+        tableContainer.classList.toggle('active', activeView === 'table');
+        kanbanContainer.classList.toggle('active', activeView === 'kanban');
+        calendarContainer.classList.toggle('active', activeView === 'calendar');
+
+        if (activeView === 'grid') renderGrid(filtered);
+        else if (activeView === 'table') renderTable(filtered);
+        else if (activeView === 'kanban') renderKanban(filtered);
+        else if (activeView === 'calendar') renderCalendar(filtered);
+      }
+
+      // RENDER GRID VIEW
+      function renderGrid(list) {
+        if (!list.length) {
+          gridContainer.innerHTML = `<div class="empty-placeholder"><i class="fas fa-search"></i><p>No scholarships match your deep search & filters.</p></div>`;
+          return;
+        }
+
+        let html = '';
+        list.forEach(s => {
+          const flag = s.country.split(' ')[0] || '🌐';
+          const prioClass = s.status === 'high' ? 'priority-high' : s.status === 'medium' ? 'priority-medium' : 'priority-low';
+          const dDays = daysUntil(s.deadline);
+          const isUrgent = dDays < 30 && dDays >= 0;
+          const score = calcScore(s);
+          const isOpen = openDrawers.has(s.id);
+
+          const chkCount = Object.keys(s.checklist || {}).filter(k => s.checklist[k]).length;
+          const cmtCount = (s.commentHistory || []).length;
+
+          const starsHtml = [1, 2, 3, 4, 5].map(i =>
+            `<span class="${i <= (s.rating || 0) ? 'active' : ''}" data-id="${s.id}" data-star="${i}">★</span>`
+          ).join('');
+
+          const chkItems = ['Transcripts', 'LORs', 'SOP', 'English Test', 'CV', 'Passport', 'Research Proposal'];
+          let chkHtml = '';
+          chkItems.forEach(item => {
+            const checked = s.checklist && s.checklist[item] ? 'checked' : '';
+            const hasDocUrl = s.docLinks && s.docLinks[item];
+            chkHtml += `
+            <div class="doc-chk-item">
+              <label><input type="checkbox" data-id="${s.id}" data-item="${item}" ${checked}> ${item}</label>
+              <div class="doc-actions">
+                ${hasDocUrl ? `<a href="${hasDocUrl}" target="_blank" class="doc-link-badge" title="${hasDocUrl}"><i class="fas fa-external-link-alt"></i> Open</a>` : ''}
+                <button class="btn-link-drive ${hasDocUrl ? 'active' : ''}" data-id="${s.id}" data-item="${item}" title="${hasDocUrl ? 'Edit Link' : 'Attach Google Drive Link'}">
+                  <i class="fas ${hasDocUrl ? 'fa-pen' : 'fa-paperclip'}"></i>
+                </button>
+              </div>
+            </div>
+          `;
+          });
+
+          let cmtsHtml = (s.commentHistory || []).map(c => `
+          <div class="comment-bubble ${c.author === 'Counsellor' ? 'counsellor' : ''}">
+            <div class="comment-meta"><span>${c.author}</span> <span>${c.timestamp || ''}</span></div>
+            <div>${c.text}</div>
+          </div>
+        `).join('');
+
+          html += `
+          <div class="card-item" data-id="${s.id}">
+            <div class="card-main">
+              <div class="card-header-row">
+                <div class="card-flag-name">
+                  <span class="card-flag">${flag}</span>
+                  <div>
+                    <div class="card-title-text">${s.name}</div>
+                    <div class="card-subtitle">${s.uni} · ${s.country}</div>
+                  </div>
+                </div>
+                <div style="display:flex; align-items:center; gap:6px;">
+                  <span class="priority-pill ${prioClass}">${s.status}</span>
+                  <button class="btn-icon-mode btn-edit-item" data-id="${s.id}" style="width:28px; height:28px; font-size:11px;"><i class="fas fa-pen"></i></button>
+                  ${s.is_custom ? `<button class="btn-icon-mode btn-del-item" data-id="${s.id}" style="width:28px; height:28px; font-size:11px; color:var(--danger);"><i class="fas fa-trash"></i></button>` : ''}
+                </div>
+              </div>
+
+              <div class="metrics-chips">
+                <span class="chip ${s.funding === 'fully' ? 'chip-funding' : 'chip-partial'}">${s.funding === 'fully' ? '✅ Fully Funded' : '🔶 Partial'}</span>
+                <span class="chip ${isUrgent ? 'chip-urgent' : ''}"><i class="fas fa-calendar-alt"></i> ${s.deadline}</span>
+                ${s.toefl ? `<span class="chip chip-toefl">📘 ${s.toefl}</span>` : ''}
+                <span class="chip"><i class="fas fa-coins"></i> ${s.stipend || 'Standard'}</span>
+                <span class="chip">${s.fee === 'free' ? '💰 Free Fee' : '💳 Paid Fee'}</span>
+              </div>
+
+              <div class="card-controls">
+                <select class="status-select app-status-sel" data-id="${s.id}">
+                  ${['not started', 'researching', 'preparing', 'applied', 'shortlisted', 'interview', 'awarded', 'rejected'].map(opt =>
+            `<option value="${opt}" ${s.appStatus === opt ? 'selected' : ''}>${getStatusLabel(opt)}</option>`
+          ).join('')}
+                </select>
+                <div class="star-rating" data-id="${s.id}">${starsHtml}</div>
+                <span class="score-tag">Score: ${score}/100</span>
+                <button class="btn-track-toggle ${s.tracked ? 'tracked' : ''}" data-id="${s.id}">
+                  <i class="fas ${s.tracked ? 'fa-check-circle' : 'fa-plus'}"></i> ${s.tracked ? 'Tracked' : 'Track'}
+                </button>
+              </div>
+            </div>
+
+            <button class="card-drawer-trigger" data-id="${s.id}">
+              <span><i class="fas fa-layer-group"></i> 📋 ${chkCount}/7 Docs · 💬 ${cmtCount} Notes</span>
+              <i class="fas fa-chevron-${isOpen ? 'up' : 'down'}"></i>
+            </button>
+
+            <div class="card-drawer ${isOpen ? 'open' : ''}" id="drawer-${s.id}">
+              <div class="drawer-tabs">
+                <button class="tab-btn active" data-id="${s.id}" data-tab="chk">📋 Documents & Links</button>
+                <button class="tab-btn" data-id="${s.id}" data-tab="notes">📝 Student & Counsellor Notes</button>
+                <button class="tab-btn" data-id="${s.id}" data-tab="cmts">💬 Discussion (${cmtCount})</button>
+              </div>
+
+              <div class="tab-pane active" id="pane-chk-${s.id}">
+                <div class="docs-checklist">${chkHtml}</div>
+              </div>
+
+              <div class="tab-pane" id="pane-notes-${s.id}">
+                <div class="drawer-notes-grid">
+                  <div class="note-box">
+                    <label>🎓 Student Notes</label>
+                    <textarea class="txt-note" data-id="${s.id}" data-field="notes" placeholder="Add student notes...">${s.notes || ''}</textarea>
+                  </div>
+                  <div class="note-box">
+                    <label>👨‍🏫 Counsellor Feedback</label>
+                    <textarea class="txt-note" data-id="${s.id}" data-field="counsellorNotes" placeholder="Add counsellor feedback...">${s.counsellorNotes || ''}</textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane" id="pane-cmts-${s.id}">
+                <div class="comments-thread" id="thread-${s.id}">${cmtsHtml || '<div style="font-size:10px; color:var(--text-muted);">No comments yet.</div>'}</div>
+                <div class="comment-input-group">
+                  <input type="text" class="in-cmt" data-id="${s.id}" placeholder="Type comment & press Enter (as ${activeRole})...">
+                  <button class="btn-send-cmt" data-id="${s.id}">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        });
+
+        gridContainer.innerHTML = html;
+        bindEvents();
+      }
+
+      // RENDER TABLE VIEW WITH EXPANDABLE DETAIL ROWS
+      function renderTable(list) {
+        if (!list.length) {
+          tableBody.innerHTML = `<tr><td colspan="11" style="text-align:center; padding:40px; color:var(--text-muted);">No scholarships match filters.</td></tr>`;
+          return;
+        }
+
+        let html = '';
+        list.forEach(s => {
+          const flag = s.country.split(' ')[0] || '🌐';
+          const score = calcScore(s);
+          const stars = [1, 2, 3, 4, 5].map(i => `<span style="color:${i <= (s.rating || 0) ? '#f59e0b' : '#cbd5e1'};">★</span>`).join('');
+          const isOpenRow = openTableRows.has(s.id);
+          const chkCount = Object.keys(s.checklist || {}).filter(k => s.checklist[k]).length;
+
+          html += `
+          <tr class="table-row-main" data-id="${s.id}">
+            <td><strong>${flag}</strong></td>
+            <td><strong>${s.name}</strong> ${s.is_custom ? '<span style="font-size:10px; color:var(--primary);">[Custom]</span>' : ''} <span style="font-size:10px; color:var(--text-muted);"><i class="fas fa-chevron-${isOpenRow ? 'up' : 'down'}"></i></span></td>
+            <td>${s.uni}</td>
+            <td><span class="chip ${s.funding === 'fully' ? 'chip-funding' : 'chip-partial'}">${s.funding}</span></td>
+            <td>${s.deadline}</td>
+            <td>${s.toefl || 'Standard'}</td>
+            <td>${s.fee === 'free' ? '💰 Free' : '💳 Paid'}</td>
+            <td>
+              <select class="status-select app-status-sel" data-id="${s.id}">
+                ${['not started', 'researching', 'preparing', 'applied', 'shortlisted', 'interview', 'awarded', 'rejected'].map(opt =>
+            `<option value="${opt}" ${s.appStatus === opt ? 'selected' : ''}>${getStatusLabel(opt)}</option>`
+          ).join('')}
+              </select>
+            </td>
+            <td>${stars}</td>
+            <td><span class="score-tag">${score}/100</span></td>
+            <td>
+              <button class="btn-track-toggle ${s.tracked ? 'tracked' : ''}" data-id="${s.id}">
+                <i class="fas ${s.tracked ? 'fa-check-circle' : 'fa-plus'}"></i>
+              </button>
+            </td>
+          </tr>
+          <tr class="table-detail-row ${isOpenRow ? 'open' : ''}" id="trow-${s.id}">
+            <td colspan="11" class="table-detail-content">
+              <div style="display:flex; flex-wrap:wrap; gap:16px;">
+                <div style="flex:1; min-width:240px;">
+                  <strong>🎓 Student Notes:</strong>
+                  <textarea class="txt-note" data-id="${s.id}" data-field="notes" style="width:100%; margin-top:4px; height:45px; border-radius:6px; border:1px solid var(--border); padding:6px; font-size:11px;">${s.notes || ''}</textarea>
+                </div>
+                <div style="flex:1; min-width:240px;">
+                  <strong>👨‍🏫 Counsellor Feedback:</strong>
+                  <textarea class="txt-note" data-id="${s.id}" data-field="counsellorNotes" style="width:100%; margin-top:4px; height:45px; border-radius:6px; border:1px solid var(--border); padding:6px; font-size:11px;">${s.counsellorNotes || ''}</textarea>
+                </div>
+                <div style="width:200px;">
+                  <strong>📋 Checklist (${chkCount}/7 Ready):</strong>
+                  <div style="font-size:10px; margin-top:4px; color:var(--text-muted);">
+                    ${Object.keys(s.checklist || {}).filter(k => s.checklist[k]).join(', ') || 'No docs marked ready yet'}
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        `;
+        });
+        tableBody.innerHTML = html;
+        bindEvents();
+      }
+
+      // RENDER KANBAN VIEW
+      function renderKanban(list) {
+        const col1 = document.getElementById('kbNotStartedLst');
+        const col2 = document.getElementById('kbPrepLst');
+        const col3 = document.getElementById('kbAppliedLst');
+        const col4 = document.getElementById('kbShortlistedLst');
+        const col5 = document.getElementById('kbAwardedLst');
+
+        const items1 = list.filter(s => s.appStatus === 'not started');
+        const items2 = list.filter(s => s.appStatus === 'researching' || s.appStatus === 'preparing');
+        const items3 = list.filter(s => s.appStatus === 'applied');
+        const items4 = list.filter(s => s.appStatus === 'shortlisted' || s.appStatus === 'interview');
+        const items5 = list.filter(s => s.appStatus === 'awarded');
+
+        document.getElementById('kbNotStartedCnt').textContent = items1.length;
+        document.getElementById('kbPrepCnt').textContent = items2.length;
+        document.getElementById('kbAppliedCnt').textContent = items3.length;
+        document.getElementById('kbShortlistedCnt').textContent = items4.length;
+        document.getElementById('kbAwardedCnt').textContent = items5.length;
+
+        const makeKbItem = s => `
+        <div class="card-item" style="padding:12px; margin-bottom:8px;">
+          <div style="font-weight:800; font-size:13px;">${s.name}</div>
+          <div style="font-size:11px; color:var(--text-muted);">${s.uni} · ${s.country}</div>
+          <div style="font-size:11px; margin-top:4px; font-weight:700; color:var(--primary);"><i class="fas fa-calendar-alt"></i> ${s.deadline}</div>
+          <div style="margin-top:6px;">
+            <select class="status-select app-status-sel" data-id="${s.id}" style="width:100%;">
+              ${['not started', 'researching', 'preparing', 'applied', 'shortlisted', 'interview', 'awarded', 'rejected'].map(opt =>
+          `<option value="${opt}" ${s.appStatus === opt ? 'selected' : ''}>${getStatusLabel(opt)}</option>`
+        ).join('')}
+            </select>
+          </div>
+        </div>
+      `;
+
+        col1.innerHTML = items1.map(makeKbItem).join('') || '<div style="font-size:11px; color:var(--text-muted);">Empty</div>';
+        col2.innerHTML = items2.map(makeKbItem).join('') || '<div style="font-size:11px; color:var(--text-muted);">Empty</div>';
+        col3.innerHTML = items3.map(makeKbItem).join('') || '<div style="font-size:11px; color:var(--text-muted);">Empty</div>';
+        col4.innerHTML = items4.map(makeKbItem).join('') || '<div style="font-size:11px; color:var(--text-muted);">Empty</div>';
+        col5.innerHTML = items5.map(makeKbItem).join('') || '<div style="font-size:11px; color:var(--text-muted);">Empty</div>';
+
+        bindEvents();
+      }
+
+      // ---------- RENDER CALENDAR VIEW ----------
+      let currentCalYear = 2026;
+      let currentCalMonth = 11; // Default to Dec 2026 (0-indexed: 11 = Dec)
+
+      function initCalendarControls() {
+        const calMonthSelect = document.getElementById('calMonthSelect');
+        const calYearSelect = document.getElementById('calYearSelect');
+        if (!calMonthSelect || calMonthSelect.options.length > 0) return;
+
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        months.forEach((m, idx) => {
+          const opt = document.createElement('option');
+          opt.value = idx;
+          opt.textContent = m;
+          calMonthSelect.appendChild(opt);
+        });
+
+        for (let y = 2026; y <= 2028; y++) {
+          const opt = document.createElement('option');
+          opt.value = y;
+          opt.textContent = y;
+          calYearSelect.appendChild(opt);
+        }
+
+        calMonthSelect.value = currentCalMonth;
+        calYearSelect.value = currentCalYear;
+
+        document.getElementById('calPrevBtn').onclick = () => {
+          currentCalMonth--;
+          if (currentCalMonth < 0) { currentCalMonth = 11; currentCalYear--; }
+          calMonthSelect.value = currentCalMonth;
+          calYearSelect.value = currentCalYear;
+          renderCalendar(scholarships);
+        };
+
+        document.getElementById('calNextBtn').onclick = () => {
+          currentCalMonth++;
+          if (currentCalMonth > 11) { currentCalMonth = 0; currentCalYear++; }
+          calMonthSelect.value = currentCalMonth;
+          calYearSelect.value = currentCalYear;
+          renderCalendar(scholarships);
+        };
+
+        document.getElementById('calTodayBtn').onclick = () => {
+          const now = new Date();
+          currentCalYear = now.getFullYear();
+          currentCalMonth = now.getMonth();
+          calMonthSelect.value = currentCalMonth;
+          calYearSelect.value = currentCalYear;
+          renderCalendar(scholarships);
+        };
+
+        calMonthSelect.onchange = () => {
+          currentCalMonth = parseInt(calMonthSelect.value);
+          renderCalendar(scholarships);
+        };
+
+        calYearSelect.onchange = () => {
+          currentCalYear = parseInt(calYearSelect.value);
+          renderCalendar(scholarships);
+        };
+      }
+
+      function parseDeadlineDate(dlStr) {
+        if (!dlStr || typeof dlStr !== 'string') return null;
+        const lower = dlStr.toLowerCase().trim();
+        if (lower.includes('rolling') || lower.includes('varies') || lower === 'tbd') return null;
+
+        // Pattern 1: e.g. "Dec 15, 2026", "15 Dec 2026", "2026-12-15", "October 31, 2026"
+        let d = new Date(dlStr);
+        if (!isNaN(d.getTime())) {
+          return { year: d.getFullYear(), month: d.getMonth(), day: d.getDate(), dateObj: d };
+        }
+
+        // Pattern 2: Month & Year e.g. "Dec 2026", "Nov 2026"
+        const mY = lower.match(/^([a-z]{3,})\s+(\d{4})$/);
+        if (mY) {
+          const monthNames = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+          const mIdx = monthNames.findIndex(m => mY[1].startsWith(m));
+          if (mIdx !== -1) {
+            return { year: parseInt(mY[2]), month: mIdx, day: 1, isApprox: true };
+          }
+        }
+
+        return null;
+      }
+
+      function renderCalendar(list) {
+        initCalendarControls();
+
+        const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const calMonthTitle = document.getElementById('calMonthTitle');
+        const calMonthBadge = document.getElementById('calMonthBadge');
+        const calGrid = document.getElementById('calGrid');
+        const calRollingList = document.getElementById('calRollingList');
+
+        calMonthTitle.innerHTML = `<i class="fas fa-calendar-alt" style="color:var(--primary);"></i> ${monthNames[currentCalMonth]} ${currentCalYear}`;
+
+        // Map deadlines by date key (YYYY-MM-DD)
+        const dateMap = {};
+        const rollingItems = [];
+
+        list.forEach(s => {
+          const parsed = parseDeadlineDate(s.deadline);
+          if (parsed) {
+            const key = `${parsed.year}-${String(parsed.month + 1).padStart(2, '0')}-${String(parsed.day).padStart(2, '0')}`;
+            if (!dateMap[key]) dateMap[key] = [];
+            dateMap[key].push({ scholarship: s, parsed });
+          } else {
+            rollingItems.push(s);
+          }
+        });
+
+        // Count deadlines in current month
+        let monthDeadlineCount = 0;
+        Object.keys(dateMap).forEach(k => {
+          const [y, m] = k.split('-').map(Number);
+          if (y === currentCalYear && m === (currentCalMonth + 1)) {
+            monthDeadlineCount += dateMap[k].length;
+          }
+        });
+        calMonthBadge.textContent = `${monthDeadlineCount} Deadline${monthDeadlineCount === 1 ? '' : 's'} in ${monthNames[currentCalMonth].slice(0, 3)}`;
+
+        // Grid construction
+        const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        let gridHtml = weekdays.map(w => `<div class="cal-weekday-header">${w}</div>`).join('');
+
+        const firstDayIndex = new Date(currentCalYear, currentCalMonth, 1).getDay();
+        const totalDaysInMonth = new Date(currentCalYear, currentCalMonth + 1, 0).getDate();
+        const prevMonthDays = new Date(currentCalYear, currentCalMonth, 0).getDate();
+
+        const today = new Date();
+        const isCurrentMonthNow = today.getFullYear() === currentCalYear && today.getMonth() === currentCalMonth;
+
+        // 1. Previous month padding
+        for (let i = firstDayIndex - 1; i >= 0; i--) {
+          const dayNum = prevMonthDays - i;
+          gridHtml += `
+          <div class="cal-day-cell other-month">
+            <div class="cal-day-header"><span class="cal-day-num">${dayNum}</span></div>
+          </div>
+        `;
+        }
+
+        // 2. Current month days
+        for (let d = 1; d <= totalDaysInMonth; d++) {
+          const isToday = isCurrentMonthNow && today.getDate() === d;
+          const key = `${currentCalYear}-${String(currentCalMonth + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+          const dayScholarships = dateMap[key] || [];
+
+          let pillsHtml = '';
+          dayScholarships.forEach(item => {
+            const s = item.scholarship;
+            const flag = s.country.split(' ')[0] || '🌐';
+            const prioClass = s.status === 'high' ? 'high' : s.status === 'medium' ? 'medium' : 'low';
+            const trkClass = s.tracked ? 'tracked-border' : '';
+            const shortName = s.name.length > 18 ? s.name.slice(0, 16) + '…' : s.name;
+
+            pillsHtml += `
+            <div class="cal-pill ${prioClass} ${trkClass}" data-id="${s.id}">
+              <span class="cal-pill-name">${flag} ${shortName}</span>
+              ${s.tracked ? '<i class="fas fa-star" style="color:#f59e0b; font-size:8px;"></i>' : ''}
+            </div>
+          `;
+          });
+
+          gridHtml += `
+          <div class="cal-day-cell ${isToday ? 'today' : ''}" data-date="${key}">
+            <div class="cal-day-header">
+              <span class="cal-day-num">${d}</span>
+              ${dayScholarships.length > 0 ? `<span class="cal-day-count-badge" style="cursor:pointer;" title="Click to view all deadlines">${dayScholarships.length}</span>` : ''}
+            </div>
+            <div class="cal-pills-wrapper">
+              ${pillsHtml}
+            </div>
+          </div>
+        `;
+        }
+
+        // 3. Next month padding to fill grid 35 or 42 cells
+        const totalCells = firstDayIndex + totalDaysInMonth;
+        const nextDays = (totalCells % 7 === 0) ? 0 : 7 - (totalCells % 7);
+        for (let i = 1; i <= nextDays; i++) {
+          gridHtml += `
+          <div class="cal-day-cell other-month">
+            <div class="cal-day-header"><span class="cal-day-num">${i}</span></div>
+          </div>
+        `;
+        }
+
+        calGrid.innerHTML = gridHtml;
+
+        // 4. Render rolling list at bottom
+        if (rollingItems.length > 0) {
+          calRollingList.innerHTML = rollingItems.map(s => {
+            const flag = s.country.split(' ')[0] || '🌐';
+            return `
+            <div class="cal-rolling-pill btn-edit-item" data-id="${s.id}">
+              <span>${flag} <strong>${s.name}</strong> (${s.deadline})</span>
+              <i class="fas fa-chevron-right" style="font-size:9px; opacity:0.6;"></i>
+            </div>
+          `;
+          }).join('');
+        } else {
+          calRollingList.innerHTML = '<span style="font-size:11px; color:var(--text-muted);">No rolling/flexible deadline items in current filter.</span>';
+        }
+
+        // Attach Pill Hover Tooltips, Day Header Clicks & Click Listeners
+        attachCalendarEvents(dateMap);
+      }
+
+      function positionTooltip(targetEl, tooltipEl) {
+        const rect = targetEl.getBoundingClientRect();
+        let left = rect.left;
+        let top = rect.bottom + 6;
+
+        if (left + 310 > window.innerWidth) left = window.innerWidth - 320;
+        if (top + 220 > window.innerHeight) top = rect.top - 225;
+
+        tooltipEl.style.left = Math.max(10, left) + 'px';
+        tooltipEl.style.top = Math.max(10, top) + 'px';
+        tooltipEl.classList.add('active');
+      }
+
+      function attachCalendarEvents(dateMap) {
+        const tooltip = document.getElementById('calTooltip');
+
+        // 1. Hover & Click on Individual Pills
+        document.querySelectorAll('.cal-pill').forEach(pill => {
+          pill.addEventListener('mouseenter', function (e) {
+            const id = parseInt(this.dataset.id);
+            const s = scholarships.find(i => i.id === id);
+            if (!s) return;
+
+            tooltip.style.pointerEvents = 'none';
+            const flag = s.country.split(' ')[0] || '🌐';
+            const dDays = daysUntil(s.deadline);
+            const dText = dDays === Infinity ? 'Flexible' : dDays < 0 ? 'Deadline Passed' : `${dDays} days left`;
+            const isTrackedHtml = s.tracked ? '<span style="color:#f59e0b;"><i class="fas fa-star"></i> ⭐ Tracked</span>' : '<span>Untracked</span>';
+
+            tooltip.innerHTML = `
+            <div class="cal-tooltip-head">
+              <div>
+                <div class="cal-tooltip-title">${flag} ${s.name}</div>
+                <div class="cal-tooltip-uni"><i class="fas fa-university"></i> ${s.uni} · ${s.country}</div>
+              </div>
+            </div>
+            <div class="cal-tooltip-body">
+              <div class="cal-tooltip-row"><span>Funding:</span><strong>${s.funding === 'fully' ? '✅ Fully Funded' : '⚠️ Partial'}</strong></div>
+              <div class="cal-tooltip-row"><span>Stipend:</span><span>${s.stipend || 'Tuition waiver'}</span></div>
+              <div class="cal-tooltip-row"><span>Deadline:</span><strong class="cal-tooltip-days">${s.deadline} (${dText})</strong></div>
+              <div class="cal-tooltip-row"><span>Priority & Status:</span><span>${s.status.toUpperCase()} · ${getStatusLabel(s.appStatus)}</span></div>
+              <div class="cal-tooltip-row"><span>Saved Status:</span>${isTrackedHtml}</div>
+            </div>
+          `;
+
+            positionTooltip(this, tooltip);
+          });
+
+          pill.addEventListener('mouseleave', function () {
+            tooltip.classList.remove('active');
+          });
+
+          pill.addEventListener('click', function (e) {
+            e.stopPropagation();
+            tooltip.classList.remove('active');
+            const id = parseInt(this.dataset.id);
+            const editBtn = document.querySelector(`.btn-edit-item[data-id="${id}"]`);
+            if (editBtn) editBtn.click();
+          });
+        });
+
+        // 2. Click Day Count Badge / Header to open Day Deadlines Modal
+        document.querySelectorAll('.cal-day-cell').forEach(cell => {
+          const key = cell.dataset.date;
+          if (!key) return;
+          const dayItems = (dateMap[key] || []).map(i => i.scholarship);
+          if (dayItems.length === 0) return;
+
+          const badge = cell.querySelector('.cal-day-count-badge');
+          if (badge) {
+            badge.addEventListener('click', function (e) {
+              e.stopPropagation();
+              openDayDeadlinesModal(key, dayItems);
+            });
+          }
+        });
+
+        tooltip.addEventListener('mouseleave', function () {
+          tooltip.classList.remove('active');
+        });
+      }
+
+      function openDayDeadlinesModal(dateKey, list) {
+        const modal = document.getElementById('calDayModal');
+        const title = document.getElementById('calDayModalTitle');
+        const modalList = document.getElementById('calDayModalList');
+
+        const dObj = new Date(dateKey);
+        const formattedDate = !isNaN(dObj) ? dObj.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : dateKey;
+
+        title.innerHTML = `<i class="fas fa-calendar-day" style="color:var(--primary);"></i> Deadlines on ${formattedDate} (${list.length})`;
+
+        modalList.innerHTML = list.map(s => {
+          const flag = s.country.split(' ')[0] || '🌐';
+          const dDays = daysUntil(s.deadline);
+          const dText = dDays === Infinity ? 'Flexible' : dDays < 0 ? 'Passed' : `${dDays} days left`;
+          const prioTag = s.status === 'high' ? '🔴 High Priority' : s.status === 'medium' ? '🟠 Medium' : '⚪ Low';
+
+          return `
+          <div style="background:var(--bg-card-sub); border:1px solid var(--border); border-radius:12px; padding:14px; display:flex; justify-content:space-between; align-items:center; gap:12px;">
+            <div style="flex:1;">
+              <div style="font-weight:800; font-size:14px; color:var(--text-main); margin-bottom:4px;">
+                ${flag} ${s.name} ${s.tracked ? '<i class="fas fa-star" style="color:#f59e0b; margin-left:4px;"></i>' : ''}
+              </div>
+              <div style="font-size:12px; color:var(--text-muted); margin-bottom:6px;">
+                <i class="fas fa-university"></i> ${s.uni} · ${s.country}
+              </div>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; font-size:11px;">
+                <span style="background:var(--bg-card); padding:2px 8px; border-radius:12px; border:1px solid var(--border); font-weight:700;">
+                  ${s.funding === 'fully' ? '✅ Fully Funded' : '⚠️ Partial'}
+                </span>
+                <span style="background:var(--bg-card); padding:2px 8px; border-radius:12px; border:1px solid var(--border);">
+                  💰 ${s.stipend || 'Tuition waiver'}
+                </span>
+                <span style="background:var(--bg-card); padding:2px 8px; border-radius:12px; border:1px solid var(--border); color:#ef4444; font-weight:700;">
+                  ⏳ ${dText}
+                </span>
+                <span style="background:var(--bg-card); padding:2px 8px; border-radius:12px; border:1px solid var(--border); font-weight:700;">
+                  ${prioTag}
+                </span>
+              </div>
+            </div>
+            <div>
+              <button class="btn-primary-action btn-edit-day-item" data-id="${s.id}" style="padding:8px 14px; font-size:11px;">
+                <i class="fas fa-edit"></i> View / Edit
+              </button>
+            </div>
+          </div>
+        `;
+        }).join('');
+
+        modal.classList.add('active');
+
+        document.getElementById('closeCalDayModal').onclick = () => modal.classList.remove('active');
+
+        modalList.querySelectorAll('.btn-edit-day-item').forEach(btn => {
+          btn.onclick = function () {
+            modal.classList.remove('active');
+            const id = parseInt(this.dataset.id);
+            const s = scholarships.find(i => i.id === id);
+            if (!s) return;
+            document.getElementById('edit_id').value = s.id;
+            document.getElementById('edit_name').value = s.name;
+            document.getElementById('edit_uni').value = s.uni;
+            document.getElementById('edit_country').value = s.country;
+            document.getElementById('edit_funding').value = s.funding;
+            document.getElementById('edit_priority').value = s.status;
+            document.getElementById('edit_deadline').value = s.deadline;
+            document.getElementById('edit_stipend').value = s.stipend || '';
+            document.getElementById('edit_tags').value = (s.tags || []).join(', ');
+            document.getElementById('edit_toefl').value = s.toefl || '';
+            document.getElementById('edit_fee').value = s.fee || 'free';
+            document.getElementById('editModal').classList.add('active');
+          };
+        });
+      }
+
+      // BIND EVENT LISTENERS
+      function bindEvents() {
+        // Track button
+        document.querySelectorAll('.btn-track-toggle').forEach(btn => {
+          btn.onclick = function (e) {
+            e.stopPropagation();
+            const id = parseInt(this.dataset.id);
+            const s = scholarships.find(item => item.id === id);
+            if (s) { s.tracked = !s.tracked; saveProgress(s); render(); }
+          };
+        });
+
+        // App status dropdown
+        document.querySelectorAll('.app-status-sel').forEach(sel => {
+          sel.onclick = e => e.stopPropagation();
+          sel.onchange = function (e) {
+            e.stopPropagation();
+            const id = parseInt(this.dataset.id);
+            const s = scholarships.find(item => item.id === id);
+            if (s) { s.appStatus = this.value; saveProgress(s); render(); }
+          };
+        });
+
+        // Rating Stars
+        document.querySelectorAll('.star-rating span').forEach(star => {
+          star.onclick = function () {
+            const id = parseInt(this.dataset.id);
+            const rating = parseInt(this.dataset.star);
+            const s = scholarships.find(item => item.id === id);
+            if (s) { s.rating = rating; saveProgress(s); render(); }
+          };
+        });
+
+        // Drawer Expand Trigger
+        document.querySelectorAll('.card-drawer-trigger').forEach(btn => {
+          btn.onclick = function () {
+            const id = parseInt(this.dataset.id);
+            if (openDrawers.has(id)) openDrawers.delete(id);
+            else openDrawers.add(id);
+            render();
+          };
+        });
+
+        // Expandable Table Row Click
+        document.querySelectorAll('.table-row-main').forEach(tr => {
+          tr.onclick = function (e) {
+            if (e.target.tagName === 'SELECT' || e.target.tagName === 'BUTTON' || e.target.closest('.btn-track-toggle')) return;
+            const id = parseInt(this.dataset.id);
+            if (openTableRows.has(id)) openTableRows.delete(id);
+            else openTableRows.add(id);
+            render();
+          };
+        });
+
+        // Drawer Tab Buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+          btn.onclick = function () {
+            const id = parseInt(this.dataset.id);
+            const tab = this.dataset.tab;
+            const card = this.closest('.card-item');
+
+            card.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            card.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+
+            this.classList.add('active');
+            if (tab === 'chk') card.querySelector(`#pane-chk-${id}`).classList.add('active');
+            else if (tab === 'notes') card.querySelector(`#pane-notes-${id}`).classList.add('active');
+            else if (tab === 'cmts') card.querySelector(`#pane-cmts-${id}`).classList.add('active');
+          };
+        });
+
+        // Checklist checkboxes
+        document.querySelectorAll('.docs-checklist input[type="checkbox"]').forEach(cb => {
+          cb.onchange = function () {
+            const id = parseInt(this.dataset.id);
+            const item = this.dataset.item;
+            const s = scholarships.find(i => i.id === id);
+            if (s) {
+              if (!s.checklist) s.checklist = {};
+              s.checklist[item] = this.checked;
+              saveProgress(s);
+            }
+          };
+        });
+
+        // Link Drive Button
+        document.querySelectorAll('.btn-link-drive').forEach(btn => {
+          btn.onclick = function (e) {
+            e.stopPropagation();
+            const id = parseInt(this.dataset.id);
+            const item = this.dataset.item;
+            const s = scholarships.find(i => i.id === id);
+            if (!s) return;
+
+            const curUrl = s.docLinks && s.docLinks[item] ? s.docLinks[item] : '';
+            document.getElementById('doc_sch_id').value = id;
+            document.getElementById('doc_item_name').value = item;
+            document.getElementById('docItemTitle').textContent = `Attach Google Drive Link for ${item}`;
+            document.getElementById('doc_url').value = curUrl;
+            docLinkModal.classList.add('active');
+          };
+        });
+
+        // Notes textareas
+        document.querySelectorAll('.txt-note').forEach(ta => {
+          ta.oninput = function () {
+            const id = parseInt(this.dataset.id);
+            const field = this.dataset.field;
+            const s = scholarships.find(i => i.id === id);
+            if (s) { s[field] = this.value; saveProgress(s); }
+          };
+        });
+
+        // Add comment helper
+        const postComment = (id, input) => {
+          const text = input.value.trim();
+          if (!text) return;
+
+          const s = scholarships.find(i => i.id === id);
+          if (s) {
+            if (!s.commentHistory) s.commentHistory = [];
+            const now = new Date();
+            const dateStr = `${now.getDate()} ${now.toLocaleString('en', { month: 'short' })}, ${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
+            s.commentHistory.push({
+              author: activeRole === 'counsellor' ? 'Counsellor' : 'Student',
+              text: text,
+              timestamp: dateStr
+            });
+            input.value = '';
+            saveProgress(s);
+            render();
+            const thread = document.getElementById(`thread-${id}`);
+            if (thread) thread.scrollTop = thread.scrollHeight;
+          }
+        };
+
+        // Add comment button & Enter key listener
+        document.querySelectorAll('.btn-send-cmt').forEach(btn => {
+          btn.onclick = function () {
+            const id = parseInt(this.dataset.id);
+            const input = this.closest('.comment-input-group').querySelector('.in-cmt');
+            postComment(id, input);
+          };
+        });
+
+        document.querySelectorAll('.in-cmt').forEach(input => {
+          input.onkeydown = function (e) {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              const id = parseInt(this.dataset.id);
+              postComment(id, this);
+            }
+          };
+        });
+
+        // Edit scholarship item
+        document.querySelectorAll('.btn-edit-item').forEach(btn => {
+          btn.onclick = function () {
+            const id = parseInt(this.dataset.id);
+            const s = scholarships.find(i => i.id === id);
+            if (!s) return;
+
+            document.getElementById('edit_id').value = s.id;
+            document.getElementById('edit_name').value = s.name;
+            document.getElementById('edit_uni').value = s.uni;
+            document.getElementById('edit_country').value = s.country;
+            document.getElementById('edit_funding').value = s.funding;
+            document.getElementById('edit_priority').value = s.status;
+            document.getElementById('edit_deadline').value = s.deadline;
+            document.getElementById('edit_stipend').value = s.stipend || '';
+            document.getElementById('edit_tags').value = (s.tags || []).join(', ');
+            document.getElementById('edit_toefl').value = s.toefl || '';
+            document.getElementById('edit_fee').value = s.fee || 'free';
+
+            editModal.classList.add('active');
+          };
+        });
+
+        // Delete custom item
+        document.querySelectorAll('.btn-del-item').forEach(btn => {
+          btn.onclick = async function () {
+            const id = parseInt(this.dataset.id);
+            if (confirm('Delete this custom scholarship entry?')) {
+              setSyncState('syncing');
+              try {
+                const res = await fetch('api.php?action=delete_scholarship', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ action: 'delete_scholarship', id: id })
+                });
+                const data = await res.json();
+                if (data.success) await loadScholarships();
+                else setSyncState('error');
+              } catch (e) { setSyncState('error'); }
+            }
+          };
+        });
+      }
+
+      // EXPORTS
+      function exportCsv() {
+        const headers = ['ID', 'Name', 'University', 'Country', 'Level', 'Funding', 'Priority', 'Deadline', 'Stipend', 'Status', 'Rating', 'Score', 'Student Notes', 'Counsellor Notes', 'Tracked'];
+        const rows = scholarships.map(s => [
+          s.id,
+          `"${(s.name || '').replace(/"/g, '""')}"`,
+          `"${(s.uni || '').replace(/"/g, '""')}"`,
+          `"${(s.country || '').replace(/"/g, '""')}"`,
+          `"${(s.level || '').replace(/"/g, '""')}"`,
+          s.funding,
+          s.status,
+          `"${s.deadline}"`,
+          `"${(s.stipend || '').replace(/"/g, '""')}"`,
+          s.appStatus,
+          s.rating,
+          calcScore(s),
+          `"${(s.notes || '').replace(/"/g, '""')}"`,
+          `"${(s.counsellorNotes || '').replace(/"/g, '""')}"`,
+          s.tracked ? 'Yes' : 'No'
+        ]);
+        const csv = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+        const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `scholarship_tracker_${new Date().toISOString().slice(0, 10)}.csv`;
+        a.click();
+      }
+
+      function exportIcal() {
+        let ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Scholarship Tracker Pro//EN'];
+        scholarships.forEach(s => {
+          const d = new Date(s.deadline);
+          if (isNaN(d)) return;
+          const dateStr = d.toISOString().replace(/-|:|\.\d+/g, '').slice(0, 8);
+          ics.push(
+            'BEGIN:VEVENT',
+            `SUMMARY:Deadline: ${s.name}`,
+            `DESCRIPTION:${s.uni} (${s.country}) - Funding: ${s.funding}`,
+            `DTSTART;VALUE=DATE:${dateStr}`,
+            `DTEND;VALUE=DATE:${dateStr}`,
+            'END:VEVENT'
+          );
+        });
+        ics.push('END:VCALENDAR');
+        const blob = new Blob([ics.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'scholarship_deadlines.ics';
+        a.click();
+      }
+
+      // MATRIX QUADRANT CLICKS
+      document.querySelectorAll('.matrix-card').forEach(card => {
+        card.onclick = function () {
+          const q = this.dataset.quadrant;
+          if (activeMatrixQuadrant === q) {
+            activeMatrixQuadrant = null;
+            matrixFilterBadge.classList.remove('active');
+          } else {
+            activeMatrixQuadrant = q;
+            const map = { q1: '🔴 Urgent & Important', q2: '🟠 Important · Not Urgent', q3: '🔵 Urgent · Not Important', q4: '⚪ Not Urgent · Not Important' };
+            matrixFilterLabel.textContent = map[q];
+            matrixFilterBadge.classList.add('active');
+          }
+          render();
+        };
+      });
+
+      clearMatrixFilterBtn.onclick = () => {
+        activeMatrixQuadrant = null;
+        matrixFilterBadge.classList.remove('active');
+        render();
+      };
+
+      // CLEAR SEARCH BUTTON
+      clearSearchBtn.onclick = () => {
+        searchInput.value = '';
+        render();
+      };
+
+      function updateViewButtons() {
+        [viewGridOpt, viewTableOpt, viewKanbanOpt, viewCalendarOpt].forEach(btn => {
+          if (btn) btn.classList.remove('active');
+        });
+        if (activeView === 'grid' && viewGridOpt) viewGridOpt.classList.add('active');
+        else if (activeView === 'table' && viewTableOpt) viewTableOpt.classList.add('active');
+        else if (activeView === 'kanban' && viewKanbanOpt) viewKanbanOpt.classList.add('active');
+        else if (activeView === 'calendar' && viewCalendarOpt) viewCalendarOpt.classList.add('active');
+      }
+
+      // VIEW SWITCHERS
+      viewGridOpt.onclick = () => { activeView = 'grid'; updateViewButtons(); render(); };
+      viewTableOpt.onclick = () => { activeView = 'table'; updateViewButtons(); render(); };
+      viewKanbanOpt.onclick = () => { activeView = 'kanban'; updateViewButtons(); render(); };
+      viewCalendarOpt.onclick = () => { activeView = 'calendar'; updateViewButtons(); render(); };
+
+      // ROLE SWITCHER
+      roleBtn.onclick = function () {
+        if (activeRole === 'student') {
+          if (!counsellorAuthed) {
+            const pin = prompt('Enter Counsellor Access PIN (Default: 1234):');
+            if (pin !== counsellorPin) { alert('Incorrect PIN!'); return; }
+            counsellorAuthed = true;
+          }
+          activeRole = 'counsellor';
+          this.className = 'btn-role counsellor';
+          this.innerHTML = '<i class="fas fa-user-tie"></i> Counsellor Mode';
+        } else {
+          activeRole = 'student';
+          this.className = 'btn-role';
+          this.innerHTML = '<i class="fas fa-user"></i> Student Mode';
+        }
+        render();
+      };
+
+      // THEME TOGGLE
+      themeToggleBtn.onclick = function () {
+        document.body.classList.toggle('dark');
+        this.innerHTML = document.body.classList.contains('dark') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      };
+
+      // RESET ALL FILTERS
+      resetFiltersBtn.onclick = () => {
+        statusFilter.value = 'all';
+        fundingFilter.value = 'all';
+        countryFilter.value = 'all';
+        trackedFilter.value = 'all';
+        sortFilter.value = 'deadline';
+        searchInput.value = '';
+        activeMatrixQuadrant = null;
+        matrixFilterBadge.classList.remove('active');
+        render();
+      };
+
+      // CLICKABLE TRACKED STAT CHIP TOGGLE
+      document.getElementById('chipTrackedFilter').onclick = () => {
+        trackedFilter.value = trackedFilter.value === 'tracked' ? 'all' : 'tracked';
+        render();
+      };
+
+      // WIPE ALL PROGRESS
+      document.getElementById('wipeProgressBtn').onclick = async () => {
+        if (confirm('⚠️ ARE YOU SURE?\n\nReset all application statuses, ratings, checklists, and notes for both student and counsellor?')) {
+          setSyncState('syncing');
+          try {
+            const res = await fetch('api.php?action=reset_progress', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ action: 'reset_progress' })
+            });
+            const data = await res.json();
+            if (data.success) {
+              localStorage.removeItem('cached_scholarships');
+              await loadScholarships();
+            }
+          } catch (e) { setSyncState('error'); }
+        }
+      };
+
+      // MODAL TRIGGERS & CLOSES
+      document.getElementById('openAddModalBtn').onclick = () => addModal.classList.add('active');
+      document.getElementById('closeAddModal').onclick = () => addModal.classList.remove('active');
+      document.getElementById('closeEditModal').onclick = () => editModal.classList.remove('active');
+      document.getElementById('closeDocLinkModal').onclick = () => docLinkModal.classList.remove('active');
+      document.getElementById('openImportModalBtn').onclick = () => importModal.classList.add('active');
+      document.getElementById('closeImportModal').onclick = () => importModal.classList.remove('active');
+
+      // FORMS
+      document.getElementById('addForm').onsubmit = async function (e) {
+        e.preventDefault();
+        const payload = {
+          action: 'add_scholarship',
+          name: document.getElementById('add_name').value.trim(),
+          uni: document.getElementById('add_uni').value.trim(),
+          country: document.getElementById('add_country').value.trim(),
+          level: "Master's",
+          funding: document.getElementById('add_funding').value,
+          status: document.getElementById('add_priority').value,
+          deadline: document.getElementById('add_deadline').value.trim() || 'varies',
+          stipend: document.getElementById('add_stipend').value.trim(),
+          tags: document.getElementById('add_tags').value.split(',').map(t => t.trim()).filter(Boolean),
+          toefl: document.getElementById('add_toefl').value.trim(),
+          fee: document.getElementById('add_fee').value
+        };
+        setSyncState('syncing');
+        try {
+          const res = await fetch('api.php?action=add_scholarship', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json();
+          if (data.success) { addModal.classList.remove('active'); this.reset(); await loadScholarships(); }
+        } catch (err) { setSyncState('error'); }
+      };
+
+      document.getElementById('editForm').onsubmit = async function (e) {
+        e.preventDefault();
+        const payload = {
+          action: 'update_scholarship',
+          id: parseInt(document.getElementById('edit_id').value),
+          name: document.getElementById('edit_name').value.trim(),
+          uni: document.getElementById('edit_uni').value.trim(),
+          country: document.getElementById('edit_country').value.trim(),
+          level: "Master's",
+          funding: document.getElementById('edit_funding').value,
+          status: document.getElementById('edit_priority').value,
+          deadline: document.getElementById('edit_deadline').value.trim(),
+          stipend: document.getElementById('edit_stipend').value.trim(),
+          tags: document.getElementById('edit_tags').value.split(',').map(t => t.trim()).filter(Boolean),
+          toefl: document.getElementById('edit_toefl').value.trim(),
+          fee: document.getElementById('edit_fee').value
+        };
+        setSyncState('syncing');
+        try {
+          const res = await fetch('api.php?action=update_scholarship', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const data = await res.json();
+          if (data.success) { editModal.classList.remove('active'); await loadScholarships(); }
+        } catch (err) { setSyncState('error'); }
+      };
+
+      document.getElementById('docLinkForm').onsubmit = function (e) {
+        e.preventDefault();
+        const id = parseInt(document.getElementById('doc_sch_id').value);
+        const item = document.getElementById('doc_item_name').value;
+        const url = document.getElementById('doc_url').value.trim();
+
+        const s = scholarships.find(i => i.id === id);
+        if (s) {
+          if (!s.docLinks) s.docLinks = {};
+          s.docLinks[item] = url;
+          saveProgress(s);
+          docLinkModal.classList.remove('active');
+          render();
+        }
+      };
+
+      document.getElementById('submitImportBtn').onclick = function () {
+        const input = document.getElementById('importFileInput');
+        if (!input.files || !input.files[0]) { alert('Select a JSON file first'); return; }
+        const reader = new FileReader();
+        reader.onload = async function (e) {
+          try {
+            const json = JSON.parse(e.target.result);
+            if (!Array.isArray(json)) throw new Error();
+            setSyncState('syncing');
+            const res = await fetch('api.php?action=import_data', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ action: 'import_data', scholarships: json })
+            });
+            const data = await res.json();
+            if (data.success) { importModal.classList.remove('active'); await loadScholarships(); alert('Imported successfully!'); }
+          } catch (err) { alert('Invalid JSON file format'); setSyncState('error'); }
+        };
+        reader.readAsText(input.files[0]);
+      };
+
+      // BOTTOM BUTTON HANDLERS
+      document.getElementById('exportCsvBtn').onclick = exportCsv;
+      document.getElementById('exportIcalBtn').onclick = exportIcal;
+      document.getElementById('printReportBtn').onclick = () => window.print();
+
+      [statusFilter, fundingFilter, countryFilter, trackedFilter, sortFilter, searchInput].forEach(el => {
+        el.oninput = render;
+        el.onchange = render;
+      });
+
+      // START
+      loadScholarships();
+    })();
+  </script>
+
+  <!-- FLOATING TOOLTIP FOR CALENDAR HOVER -->
+  <div class="cal-tooltip" id="calTooltip"></div>
+</body>
+
+</html>
